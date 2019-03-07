@@ -10,14 +10,6 @@ import kotlinx.android.synthetic.main.fragment_first.*
 
 class FirstFragmentWithViewPager : Fragment() {
 
-    lateinit var fragmentsAdapter: FragmentsAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        fragmentsAdapter = FragmentsAdapter(childFragmentManager)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,7 +29,13 @@ class FirstFragmentWithViewPager : Fragment() {
                     ?.commit()
             }
 
-        viewPager.adapter = fragmentsAdapter
+        viewPager.adapter = FragmentsAdapter(childFragmentManager)
 
+        view.post {
+            (viewPager.adapter as FragmentsAdapter).pageTitles = listOf("PAGE 1", "PAGE 2")
+            (viewPager.adapter as FragmentsAdapter).notifyDataSetChanged()
+//            viewPager.setCurrentItem(1, true)
+            viewPager.setCurrentItem(1, false)
+        }
     }
 }
