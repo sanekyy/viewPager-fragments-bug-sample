@@ -40,6 +40,6 @@ class FirstFragmentWithViewPager : Fragment() {
         val secondImageItemPosition = 1
         (viewPager.adapter as FragmentsAdapter).pageTitles = listOf("IMAGE 1", "IMAGE 2")
         (viewPager.adapter as FragmentsAdapter).notifyDataSetChanged()
-        viewPager.setCurrentItem(secondImageItemPosition, false)
+        viewPager.setCurrentItem(secondImageItemPosition, true)
     }
 }
