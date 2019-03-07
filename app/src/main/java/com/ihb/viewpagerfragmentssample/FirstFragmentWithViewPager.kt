@@ -30,12 +30,5 @@ class FirstFragmentWithViewPager : Fragment() {
             }
 
         viewPager.adapter = FragmentsAdapter(childFragmentManager)
-
-        view.post {
-            (viewPager.adapter as FragmentsAdapter).pageTitles = listOf("PAGE 1", "PAGE 2")
-            (viewPager.adapter as FragmentsAdapter).notifyDataSetChanged()
-//            viewPager.setCurrentItem(1, true)
-            viewPager.setCurrentItem(1, false)
-        }
     }
 }
