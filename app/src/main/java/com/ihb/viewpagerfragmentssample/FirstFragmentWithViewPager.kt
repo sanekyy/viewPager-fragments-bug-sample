@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_first.*
 
 class FirstFragmentWithViewPager : Fragment() {
@@ -30,8 +29,15 @@ class FirstFragmentWithViewPager : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.button)
-            .setOnClickListener { Navigation.findNavController(view).navigate(R.id.secondFragment) }
+            .setOnClickListener {
+                fragmentManager?.beginTransaction()
+                    ?.add(R.id.fragments_container, SecondFragment())
+                    ?.addToBackStack("")
+                    ?.setReorderingAllowed(true)
+                    ?.commit()
+            }
 
         viewPager.adapter = fragmentsAdapter
+
     }
 }
