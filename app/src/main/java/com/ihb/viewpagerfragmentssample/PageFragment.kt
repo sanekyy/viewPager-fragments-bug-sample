@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_page.*
+import kotlin.random.Random
 
 class PageFragment: Fragment() {
 
@@ -24,5 +25,6 @@ class PageFragment: Fragment() {
         val title = arguments?.getString(TITLE_KEY, "MISSED TITLE")
 
         this.title.text = title
+        this.title.setBackgroundColor(Random.nextInt())
     }
 }

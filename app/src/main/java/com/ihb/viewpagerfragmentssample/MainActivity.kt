@@ -1,7 +1,7 @@
 package com.ihb.viewpagerfragmentssample
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,7 +11,6 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction()
             .add(R.id.fragments_container, FirstFragmentWithViewPager())
-            .setReorderingAllowed(true)
             .commit()
     }
 }
