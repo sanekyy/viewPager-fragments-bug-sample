@@ -30,10 +30,10 @@ class FirstFragmentWithViewPager : Fragment() {
 
         view.findViewById<Button>(R.id.button)
             .setOnClickListener {
-                fragmentManager?.beginTransaction()
-                    ?.add(R.id.fragments_container, SecondFragment())
+                fragmentManager
+                    ?.beginTransaction()
+                    ?.replace(R.id.fragments_container, SecondFragment())
                     ?.addToBackStack("")
-                    ?.setReorderingAllowed(true)
                     ?.commit()
             }
 
